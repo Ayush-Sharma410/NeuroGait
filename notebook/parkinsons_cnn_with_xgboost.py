@@ -9,8 +9,6 @@ Original file is located at
 # Installing and Importing required libraries
 """
 
-!pip -q install catboost
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt

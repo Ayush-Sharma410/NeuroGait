@@ -4,3 +4,5 @@ numpy
 python-dotenv
 mysql-connector-python
 pymysql
+xgboost
+seaborn
