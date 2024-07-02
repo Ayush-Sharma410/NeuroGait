@@ -22,17 +22,7 @@ class DataTransformationConfig:
 class DataTransformation:
     def __init__(self):
         self.data_transformation_config=DataTransformationConfig()
-
-    def replace_values(self, X):
-        return np.where(X == 1.0, 0, np.where(X == 3.0, 1, X))
-
-    def drop_empty_output_columns(self, X):
-        if isinstance(X, np.ndarray):
-            X_df = pd.DataFrame(X)
-        else:
-            X_df = X
-        X_cleaned = X_df.dropna(axis=1, how='any')
-        return X_cleaned.values if isinstance(X, np.ndarray) else X_cleaned    
+  
 
     def get_data_transformer_object(self):
         '''
@@ -58,11 +48,7 @@ class DataTransformation:
                 ('scalar',MinMaxScaler(feature_range=(0, 1)))
 
             ])
-            output_pipeline = Pipeline(steps=[
-                
-                ("replace_values", FunctionTransformer(self.replace_values)),
-                ("drop_empty_columns", FunctionTransformer(self.drop_empty_output_columns))
-            ])
+           
 
             logging.info(f"Input Columns:{input_columns}")
             logging.info(f"Output Columns:{output_columns}")
@@ -70,7 +56,7 @@ class DataTransformation:
             preprocessor=ColumnTransformer(
                 [
                     ("input_pipeline",input_pipeline,input_columns),
-                    ("output_pipeline",output_pipeline,output_columns)
+                    
                 ]
 
             )
@@ -117,9 +103,9 @@ class DataTransformation:
 
             logging.info("Applying Preprocessing on training and test dataframe")
             # logging.info(f"input_features_train_df:{input_features_train_df}")
-            input_feature_train_arr=preprocessing_obj.fit_transform(train_df)
-            input_feature_test_arr=preprocessing_obj.transform(test_df)
-
+            input_feature_train_arr=preprocessing_obj.fit_transform(train_df.drop(columns=[target_column_name],axis=1))
+            input_feature_test_arr=preprocessing_obj.transform(test_df.drop(columns=[target_column_name],axis=1))
+            logging.info(f'target_feature_train {target_feature_train_df.shape}')
 
             train_arr = np.c_[
                 input_feature_train_arr, np.array(target_feature_train_df)
@@ -135,12 +121,10 @@ class DataTransformation:
             )
 
             return (
-
                 train_arr,
                 test_arr,
                 self.data_transformation_config.preprocessor_obj_file_path
             )
-
 
         except Exception as e:
             raise CustomException(sys,e)

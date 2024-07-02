@@ -6,3 +6,4 @@ mysql-connector-python
 pymysql
 xgboost
 seaborn
+catboost

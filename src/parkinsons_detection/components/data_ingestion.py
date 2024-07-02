@@ -30,7 +30,11 @@ class DataIngestion:
 
             df.to_csv(self.ingestion_config.raw_data_path,index=False,header=True)
             df = df = df.iloc[:,3:]
+            df = df.dropna(subset=['COHORT'])
+            df.COHORT = df.COHORT.replace({1.0:0, 3.0:1})
+
             train_set,test_set=train_test_split(df,test_size=0.2,random_state=42)
+            logging.info(f'train_df in data ingestion: {train_set.shape}')
             train_set.to_csv(self.ingestion_config.train_data_path,index=False,header=True)
             test_set.to_csv(self.ingestion_config.test_data_path,index=False,header=True)
             # logging.info(f'Train set columns {train_set.columns}')
