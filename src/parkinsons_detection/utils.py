@@ -62,9 +62,8 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param):
         for i in range(len(list(models))):
             model = list(models.values())[i]
             para=param[list(models.keys())[i]]
-            if len(X_train.shape) > 2:
-                X_train = X_train.reshape(X_train.shape[0], -1)
-                X_test = X_test.reshape(X_test.shape[0], -1)
+            X_train = X_train.reshape(X_train.shape[0], -1)
+            X_test = X_test.reshape(X_test.shape[0], -1)
 
             gs = GridSearchCV(model,para,cv=3)
             gs.fit(X_train,y_train)

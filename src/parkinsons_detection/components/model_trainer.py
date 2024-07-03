@@ -111,6 +111,8 @@ class ModelTrainer:
             feat_train = model_feat.predict(X_train_cnn)
             feat_test = model_feat.predict(X_test_cnn)
 
+            # feat_train_flat = feat_train.reshape(feat_train.shape[0], -1)
+            # feat_test_flat = feat_test.reshape(feat_test.shape[0], -1)
             return feat_train,y_train,feat_test,y_test
         except Exception as e:
             raise CustomException(e,sys)
@@ -172,7 +174,7 @@ class ModelTrainer:
     }
 }
 
-            model_report = evaluate_models(X_train_cnn.reshape(X_train_cnn.shape[0], -1), y_train, X_test_cnn.reshape(X_test_cnn.shape[0], -1), y_test, models, params)
+            model_report = evaluate_models(X_train_cnn, y_train, X_test_cnn, y_test, models, params)
 
             best_model_name = max(model_report, key=model_report.get)
             best_model = models[best_model_name]
@@ -183,7 +185,7 @@ class ModelTrainer:
                 obj=best_model
             )
 
-            predicted = best_model.predict(X_test.reshape(X_test.shape[0], -1))
+            predicted = best_model.predict(X_test_cnn.reshape(X_test.shape[0], -1))
             accuracy, f1, roc_auc = self.eval_metrics(y_test, predicted)
 
             logging.info(f"Accuracy: {accuracy}, F1 Score: {f1}, ROC AUC Score: {roc_auc}")
