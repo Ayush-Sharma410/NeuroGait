@@ -1,51 +1,80 @@
-![Parkinsons Detection Using Gait Analysis](https://www.mayoclinic.org/diseases-conditions/parkinsons-disease/diagnosis-treatment/drc-20376062)
+![Parkinsons Detection Using Gait Analysis](images\parkinsons-disease-torn-paper-concept.webp?raw=true "Title")
 
 
+<p align="center">
 <img src="https://img.shields.io/github/license/Ayush-Sharma410/Parkinsons_Detection" />
 <img src="https://img.shields.io/badge/Author-Ayush%20Sharma-yellow" />
-<img src="https://img.shields.io/badge/code%20style-airbnb-blue" />
+
 </p>
+
 ## 💥 Introduction
-Parkinson's Detector is a web app that helps in predicting the likelihood of Parkinson's disease based on various parameters. It utilizes a machine learning model deployed using Flask for backend and provides a user-friendly interface for data input.
+Parkinson's Detection is an advanced machine learning project aimed at predicting Parkinson's Disease using a unique dataset with 56 parameters. The project employs Convolutional Neural Networks (CNN) for feature extraction and leverages XGBoost, Random Forest, and CatBoost to find the best model for accurate predictions.
 
 ## 💡 Why did I build this?
-The project aims to provide a tool that can aid in the early detection of Parkinson's disease, which is crucial for effective treatment and management. By leveraging machine learning, this project hopes to contribute to healthcare by providing accessible insights and predictions.
+Parkinson's Disease is a progressive neurological disorder that affects millions of people worldwide. Early detection can significantly improve the quality of life for patients. Motivated by the challenge and the potential impact on healthcare, I developed this project to leverage state-of-the-art machine learning techniques for early detection of Parkinson's Disease.
+
+## 📊 Dataset
+The dataset used in this project is unique and comprehensive, consisting of 56 parameters related to various biomarkers and clinical features associated with Parkinson's Disease. The gait system includes three lightweight wireless wearable sensors with three axial accelerometers, gyroscopes, and magnetometers. These sensors measure acceleration in three orthogonal axes as a function of time and are worn on both wrists and the lower back of participants during gait measurements. The assessment includes six tests:
+
+● Sway 30 sec eyes open: Center of mass displacement during usual condition.
+
+● Sway 30 sec eyes closed: Center of mass displacement during challenging condition.
+
+● Timed Up and Go (TUG) 1: Assessment of mobility, transfers, and turns.
+
+● TUG 2: Repeated task.
+
+● Usual walk 1 minute: Preferred walking speed.
+
+● Dual task walk 1 minute: Walk while simultaneously subtracting 3’s from a predefined number.
+
+## Gait Features
+
+Sway: Path, velocity, centroidal frequency, jerk.
+Timed Up and Go (TUG): Duration, number of steps, step duration, step regularity, step symmetry.
+Walking: Speed, number of steps, cadence, average stride time, stride variability, step regularity, step symmetry, jerk.
+Arm Swing: Amplitude, variability, jerk, asymmetry index.
+Trunk Rotation: Amplitude, asymmetry, jerk
 
 ## 🛠️ Local development
 To get started with local development, ensure that you have <b>Git</b>, <b>Python</b>, and <b>Flask</b> installed.
 
-First, clone the repository and set up the virtual environment:
+Start by cloning the repository:
 
 ```sh
 git clone https://github.com/yourusername/ParkinsonsDetection.git
 ```
-```
+
+```sh
 cd ParkinsonsDetection
 ```
-```
+Create a virtual environment and activate it:
+```sh
 python3 -m venv venv
 ```
-```
+```sh
 venv\Scripts\activate
 ```
-```
+Install the required dependencies:
+
+```sh
 pip install -r requirements.txt
 ```
-Environment Variables
-Create a .env file in the project root directory and add the necessary environment variables according to .example.env.
+Run the application:
 
-Running the Application
-To run the application, use the following command:
+```sh
+python app.py
 
-sh
-Copy code
-flask run
+```
+
 The application will be accessible at http://127.0.0.1:5000.
 
 ## 🥁 Features
-User-friendly form for inputting parameters related to Parkinson's disease.
-Predicts the likelihood of Parkinson's disease based on the provided data.
-Provides insights and predictions to aid in early detection and management.
+● Advanced Machine Learning Models: Utilizes CNN for feature extraction and XGBoost, Random Forest, and CatBoost for prediction.
+
+● Comprehensive Dataset: Employs a unique dataset with 56 parameters for accurate prediction.
+
+● User-Friendly Interface: Easy to use web application for data input and prediction results.
 
 ## 📜 LICENSE
 AGPL 3.0 License
