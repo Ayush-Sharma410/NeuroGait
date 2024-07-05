@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkinson's Detection</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .btn-primary {
+            width: 100%;
+            padding: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Parkinson's Detection Form</h1>
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+            <legend>Enter the Parameters</legend>
+            
+            <div class="form-group">
+                <label for="SP_U">SP_U:</label>
+                <input type="float" step="0.01" class="form-control" id="SP_U" name="SP_U" required>
+            </div>
+            <div class="form-group">
+                <label for="RA_AMP_U">RA_AMP_U:</label>
+                <input type="number" step="0.01" class="form-control" id="RA_AMP_U" name="RA_AMP_U" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="LA_AMP_U">LA_AMP_U:</label>
+                <input type="number" step="0.01" class="form-control" id="LA_AMP_U" name="LA_AMP_U" required>
+            </div>
+            <div class="form-group">
+                <label for="RA_STD_U">RA_STD_U:</label>
+                <input type="number" step="0.01"  class="form-control" id="RA_STD_U" name="RA_STD_U" required>
+            </div>
+            <div class="form-group">
+                <label for="LA_STD_U">LA_STD_U:</label>
+                <input type="number" step="0.01" class="form-control" id="LA_STD_U" name="LA_STD_U" required>
+            </div>
+            <div class="form-group">
+                <label for="SYM_U">SYM_U:</label>
+                <input type="number" step="0.01" class="form-control" id="SYM_U" name="SYM_U" required>
+            </div>
+            <div class="form-group">
+                <label for="R_JERK_U">R_JERK_U:</label>
+                <input type="number" step="0.01" class="form-control" id="R_JERK_U" name="R_JERK_U" required>
+            </div>
+            <div class="form-group">
+                <label for="L_JERK_U">L_JERK_U:</label>
+                <input type="number" step="0.01" class="form-control" id="L_JERK_U" name="L_JERK_U" required>
+            </div>
+            <div class="form-group">
+                <label for="ASA_U">ASA_U:</label>
+                <input type="number" step="0.01" class="form-control" id="ASA_U" name="ASA_U" required>
+            </div>
+            <div class="form-group">
+                <label for="ASYM_IND_U">ASYM_IND_U:</label>
+                <input type="number" step="0.01" class="form-control" id="ASYM_IND_U" name="ASYM_IND_U" required>
+            </div>
+            <div class="form-group">
+                <label for="TRA_U">TRA_U:</label>
+                <input type="number" step="0.01" class="form-control" id="TRA_U" name="TRA_U" required>
+            </div>
+            <div class="form-group">
+                <label for="T_AMP_U">T_AMP_U:</label>
+                <input type="number" step="0.01" class="form-control" id="T_AMP_U" name="T_AMP_U" required>
+            </div>
+            <div class="form-group">
+                <label for="CAD_U">CAD_U:</label>
+                <input type="number" step="0.01" class="form-control" id="CAD_U" name="CAD_U" required>
+            </div>
+            <div class="form-group">
+                <label for="STR_T_U">STR_T_U:</label>
+                <input type="number" step="0.01" class="form-control" id="STR_T_U" name="STR_T_U" required>
+            </div>
+            <div class="form-group">
+                <label for="STR_CV_U">STR_CV_U:</label>
+                <input type="number" step="0.01" class="form-control" id="STR_CV_U" name="STR_CV_U" required>
+            </div>
+            <div class="form-group">
+                <label for="STEP_REG_U">STEP_REG_U:</label>
+                <input type="number" step="0.01" class="form-control" id="STEP_REG_U" name="STEP_REG_U" required>
+            </div>
+            <div class="form-group">
+                <label for="STEP_SYM_U">STEP_SYM_U:</label>
+                <input type="number" step="0.01" class="form-control" id="STEP_SYM_U" name="STEP_SYM_U" required>
+            </div>
+            <div class="form-group">
+                <label for="JERK_T_U">JERK_T_U:</label>
+                <input type="number" step="0.01" class="form-control" id="JERK_T_U" name="JERK_T_U" required>
+            </div>
+            <div class="form-group">
+                <label for="SP__DT">SP__DT:</label>
+                <input type="number" step="0.01" class="form-control" id="SP__DT" name="SP__DT" required>
+            </div>
+            <div class="form-group">
+                <label for="RA_AMP_DT">RA_AMP_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="RA_AMP_DT" name="RA_AMP_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="LA_AMP_DT">LA_AMP_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="LA_AMP_DT" name="LA_AMP_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="RA_STD_DT">RA_STD_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="RA_STD_DT" name="RA_STD_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="LA_STD_DT">LA_STD_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="LA_STD_DT" name="LA_STD_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="SYM_DT">SYM_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="SYM_DT" name="SYM_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="R_JERK_DT">R_JERK_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="R_JERK_DT" name="R_JERK_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="L_JERK_DT">L_JERK_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="L_JERK_DT" name="L_JERK_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="ASA_DT">ASA_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="ASA_DT" name="ASA_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="ASYM_IND_DT">ASYM_IND_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="ASYM_IND_DT" name="ASYM_IND_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="TRA_DT">TRA_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="TRA_DT" name="TRA_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="T_AMP_DT">T_AMP_DT:</label>
+                <input type="number" class="form-control" id="T_AMP_DT" name="T_AMP_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="CAD_DT">CAD_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="CAD_DT" name="CAD_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="STR_T_DT">STR_T_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="STR_T_DT" name="STR_T_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="STR_CV_DT">STR_CV_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="STR_CV_DT" name="STR_CV_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="STEP_REG_DT">STEP_REG_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="STEP_REG_DT" name="STEP_REG_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="STEP_SYM_DT">STEP_SYM_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="STEP_SYM_DT" name="STEP_SYM_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="JERK_T_DT">JERK_T_DT:</label>
+                <input type="number" step="0.01" class="form-control" id="JERK_T_DT" name="JERK_T_DT" required>
+            </div>
+            <div class="form-group">
+                <label for="SW_VEL_OP">SW_VEL_OP:</label>
+                <input type="number" step="0.01" class="form-control" id="SW_VEL_OP" name="SW_VEL_OP" required>
+            </div>
+            <div class="form-group">
+                <label for="SW_PATH_OP">SW_PATH_OP:</label>
+                <input type="number" step="0.01" class="form-control" id="SW_PATH_OP" name="SW_PATH_OP" required>
+            </div>
+            <div class="form-group">
+                <label for="SW_FREQ_OP">SW_FREQ_OP:</label>
+                <input type="number" step="0.01" class="form-control" id="SW_FREQ_OP" name="SW_FREQ_OP" required>
+            </div>
+            <div class="form-group">
+                <label for="SW_JERK_OP">SW_JERK_OP:</label>
+                <input type="number" step="0.01" class="form-control" id="SW_JERK_OP" name="SW_JERK_OP" required>
+            </div>
+            <div class="form-group">
+                <label for="SW_VEL_CL">SW_VEL_CL:</label>
+                <input type="number" step="0.01" class="form-control" id="SW_VEL_CL" name="SW_VEL_CL" required>
+            </div>
+            <div class="form-group">
+                <label for="SW_PATH_CL">SW_PATH_CL:</label>
+                <input type="number" step="0.01" class="form-control" id="SW_PATH_CL" name="SW_PATH_CL" required>
+            </div>
+            <div class="form-group">
+                <label for="SW_FREQ_CL">SW_FREQ_CL:</label>
+                <input type="number" step="0.01" class="form-control" id="SW_FREQ_CL" name="SW_FREQ_CL" required>
+            </div>
+            <div class="form-group">
+                <label for="SW_JERK_CL">SW_JERK_CL:</label>
+                <input type="number" step="0.01" class="form-control" id="SW_JERK_CL" name="SW_JERK_CL" required>
+            </div>
+            <div class="form-group">
+                <label for="TUG1_DUR">TUG1_DUR:</label>
+                <input type="number" step="0.01" class="form-control" id="TUG1_DUR" name="TUG1_DUR" required>
+            </div>
+            <div class="form-group">
+                <label for="TUG1_STEP_NUM">TUG1_STEP_NUM:</label>
+                <input type="number" step="0.01" class="form-control" id="TUG1_STEP_NUM" name="TUG1_STEP_NUM" required>
+            </div>
+            <div class="form-group">
+                <label for="TUG1_STRAIGHT_DUR">TUG1_STRAIGHT_DUR:</label>
+                <input type="number" step="0.01" class="form-control" id="TUG1_STRAIGHT_DUR" name="TUG1_STRAIGHT_DUR" required>
+            </div>
+            <div class="form-group">
+                <label for="TUG1_TURNS_DUR">TUG1_TURNS_DUR:</label>
+                <input type="number" step="0.01" class="form-control" id="TUG1_TURNS_DUR" name="TUG1_TURNS_DUR" required>
+            </div>
+            <div class="form-group">
+                <label for="TUG1_STEP_REG">TUG1_STEP_REG:</label>
+                <input type="number" step="0.01" class="form-control" id="TUG1_STEP_REG" name="TUG1_STEP_REG" required>
+            </div>
+            <div class="form-group">
+                <label for="TUG1_STEP_SYM">TUG1_STEP_SYM:</label>
+                <input type="number" step="0.01" class="form-control" id="TUG1_STEP_SYM" name="TUG1_STEP_SYM" required>
+            </div>
+            <div class="form-group">
+                <label for="TUG2_DUR">TUG2_DUR:</label>
+                <input type="number" step="0.01" class="form-control" id="TUG2_DUR" name="TUG2_DUR" required>
+            </div>
+            <div class="form-group">
+                <label for="TUG2_STEP_NUM">TUG2_STEP_NUM:</label>
+                <input type="number" step="0.01" class="form-control" id="TUG2_STEP_NUM" name="TUG2_STEP_NUM" required>
+            </div>
+            <div class="form-group">
+                <label for="TUG2_STRAIGHT_DUR">TUG2_STRAIGHT_DUR:</label>
+                <input type="number" step="0.01" class="form-control" id="TUG2_STRAIGHT_DUR" name="TUG2_STRAIGHT_DUR" required>
+            </div>
+            <div class="form-group">
+                <label for="TUG2_TURNS_DUR">TUG2_TURNS_DUR:</label>
+                <input type="number" step="0.01" class="form-control" id="TUG2_TURNS_DUR" name="TUG2_TURNS_DUR" required>
+            </div>
+            <div class="form-group">
+                <label for="TUG2_STEP_REG">TUG2_STEP_REG:</label>
+                <input type="number" step="0.01" class="form-control" id="TUG2_STEP_REG" name="TUG2_STEP_REG" required>
+            </div>
+            <div class="form-group">
+                <label for="TUG2_STEP_SYM">TUG2_STEP_SYM:</label>
+                <input type="number" step="0.01" class="form-control" id="TUG2_STEP_SYM" name="TUG2_STEP_SYM" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <h2>Prediction: {{ results }}</h2>
+    </div>
+</body>
+</html>

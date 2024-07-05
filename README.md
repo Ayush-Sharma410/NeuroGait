@@ -2,7 +2,7 @@
 
 This repository contains the code and resources for detecting Parkinson's disease using gait analysis through a combination of Convolutional Neural Networks (CNN) and XGBoost, with an emphasis on Explainable AI (XAI) techniques.
 
-![Project Banner](path/to/your/banner/image.jpg)
+![Project Banner](images\parkinsons-disease-torn-paper-concept.webp)
 
 ## Table of Contents
 
@@ -68,11 +68,6 @@ The model architecture comprises two main components:
 
 ![Model Architecture](path/to/your/model_architecture_image.jpg)
 
-## Explainable AI
-
-To ensure the model's predictions are interpretable, we employ Explainable AI techniques. This involves using SHAP (SHapley Additive exPlanations) to explain the impact of each feature on the model's output.
-
-![Explainable AI](path/to/your/explainable_ai_image.jpg)
 
 ## Results
 

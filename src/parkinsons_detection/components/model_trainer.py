@@ -64,7 +64,7 @@ class ModelTrainer:
             model_cnn.add(Conv2D(64, 3, 3, activation= 'relu',padding='same' ,name = 'convo_2d_2'))
             # model_cnn.add(MaxPooling2D(pool_size=(1,1),padding='same',name = 'maxpool_2'))
             model_cnn.add(Dropout(0.6))
-            model_cnn.add(Conv2D(32, 5, 5, activation= 'relu',padding='same' ,name = 'convo_2d_3'))
+            model_cnn.add(Conv2D(56, 5, 5, activation= 'relu',padding='same' ,name = 'convo_2d_3'))
             model_cnn.add(Dropout(0.6))
             # model_cnn.add(Conv2D(32, 5, 5, activation= 'relu',padding='same' ,name = 'convo_2d_4'))
             # model_cnn.add(Dropout(0.5))
@@ -170,7 +170,7 @@ class ModelTrainer:
     "AdaBoost Classifier": {
         'n_estimators': [8, 16, 32],
         'learning_rate': [.1, .05, .01],
-        'algorithm': ['SAMME', 'SAMME.R']
+        
     }
 }
 
@@ -184,8 +184,9 @@ class ModelTrainer:
                 file_path=self.model_trainer_config.trained_model_file_path,
                 obj=best_model
             )
-
-            predicted = best_model.predict(X_test_cnn.reshape(X_test.shape[0], -1))
+            logging.info(f'x_test :{(X_test_cnn).shape}')
+            logging.info(f'x_test latest:{(X_test_cnn.reshape(X_test_cnn.shape[0], -1)).shape}')
+            predicted = best_model.predict(X_test_cnn.reshape(X_test_cnn.shape[0], -1))
             accuracy, f1, roc_auc = self.eval_metrics(y_test, predicted)
 
             logging.info(f"Accuracy: {accuracy}, F1 Score: {f1}, ROC AUC Score: {roc_auc}")
