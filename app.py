@@ -84,9 +84,14 @@ def predict_datapoint():
         predict_pipeline = PredictPipeline()
         print("Mid Prediction")
         results = predict_pipeline.predict(pred_df)
+        print(results)
+        if results == 1.0:
+            answer = 'Parkinsons found out to be True'
+        else:
+            answer =   'Parkinsons found out to be False'     
         print("After Prediction")
         
-        return render_template('index.html', results=results[0])
+        return render_template('index.html', results=answer)
 
 if __name__ == "__main__":
     app.run(debug=True)
