@@ -1,83 +1,52 @@
-# Parkinson's Detection Using Gait Analysis
-
-This repository contains the code and resources for detecting Parkinson's disease using gait analysis through a combination of Convolutional Neural Networks (CNN) and XGBoost, with an emphasis on Explainable AI (XAI) techniques.
-
-![Project Banner](images\parkinsons-disease-torn-paper-concept.webp)
-
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Project Structure](#project-structure)
-- [Dataset](#dataset)
-- [Model Architecture](#model-architecture)
-- [Explainable AI](#explainable-ai)
-- [Results](#results)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Introduction
-
-Parkinson's disease is a neurodegenerative disorder that affects movement. Gait analysis, which studies the manner of walking, can provide valuable insights for detecting Parkinson's. This project leverages deep learning and machine learning techniques to analyze gait patterns and detect Parkinson's disease with high accuracy.
-
-## Project Structure
-
-parkinsons-detection/
-│
-├── data/
-│ ├── raw/
-│ └── processed/
-│
-├── notebooks/
-│ └── analysis.ipynb
-│
-├── src/
-│ ├── init.py
-│ ├── data_processing.py
-│ ├── cnn_model.py
-│ ├── xgboost_model.py
-│ └── explainable_ai.py
-│
-├── tests/
-│ ├── init.py
-│ ├── test_data_processing.py
-│ ├── test_cnn_model.py
-│ ├── test_xgboost_model.py
-│ └── test_explainable_ai.py
-│
-├── .gitignore
-├── README.md
-├── requirements.txt
-└── setup.py
+![Parkinsons Detection Using Gait Analysis](https://www.mayoclinic.org/diseases-conditions/parkinsons-disease/diagnosis-treatment/drc-20376062)
 
 
-## Dataset
+<img src="https://img.shields.io/github/license/Ayush-Sharma410/Parkinsons_Detection" />
+<img src="https://img.shields.io/badge/Author-Ayush%20Sharma-yellow" />
+<img src="https://img.shields.io/badge/code%20style-airbnb-blue" />
+</p>
+## 💥 Introduction
+Parkinson's Detector is a web app that helps in predicting the likelihood of Parkinson's disease based on various parameters. It utilizes a machine learning model deployed using Flask for backend and provides a user-friendly interface for data input.
 
-The dataset consists of gait recordings from individuals diagnosed with Parkinson's disease and healthy controls. The data is preprocessed and segmented to be used as input for the CNN.
+## 💡 Why did I build this?
+The project aims to provide a tool that can aid in the early detection of Parkinson's disease, which is crucial for effective treatment and management. By leveraging machine learning, this project hopes to contribute to healthcare by providing accessible insights and predictions.
 
-## Model Architecture
+## 🛠️ Local development
+To get started with local development, ensure that you have <b>Git</b>, <b>Python</b>, and <b>Flask</b> installed.
 
-The model architecture comprises two main components:
+First, clone the repository and set up the virtual environment:
 
-1. **Convolutional Neural Network (CNN)**:
-   - The CNN is used to extract features from the gait data. It includes three convolutional layers followed by pooling layers.
-
-2. **XGBoost**:
-   - The extracted features from the CNN are used as input to the XGBoost classifier, which predicts whether an individual has Parkinson's disease.
-
-![Model Architecture](path/to/your/model_architecture_image.jpg)
-
-
-## Results
-
-The combined CNN and XGBoost model achieved an accuracy of **91%** on the test set. The use of Explainable AI provided insights into which features were most influential in the detection of Parkinson's disease.
-
-![Results](path/to/your/results_image.jpg)
-
-## Installation
-
-To install the required dependencies, run:
-
-```bash
+```sh
+git clone https://github.com/yourusername/ParkinsonsDetection.git
+```
+```
+cd ParkinsonsDetection
+```
+```
+python3 -m venv venv
+```
+```
+venv\Scripts\activate
+```
+```
 pip install -r requirements.txt
+```
+Environment Variables
+Create a .env file in the project root directory and add the necessary environment variables according to .example.env.
+
+Running the Application
+To run the application, use the following command:
+
+sh
+Copy code
+flask run
+The application will be accessible at http://127.0.0.1:5000.
+
+## 🥁 Features
+User-friendly form for inputting parameters related to Parkinson's disease.
+Predicts the likelihood of Parkinson's disease based on the provided data.
+Provides insights and predictions to aid in early detection and management.
+
+## 📜 LICENSE
+AGPL 3.0 License
+

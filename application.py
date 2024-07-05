@@ -88,7 +88,7 @@ def predict_datapoint():
         if results == 1.0:
             answer = 'Parkinsons found out to be True'
         else:
-            answer =   'Parkinsons found out to be False'     
+            answer = 'Parkinsons found out to be False'     
         print("After Prediction")
         
         return render_template('index.html', results=answer)
