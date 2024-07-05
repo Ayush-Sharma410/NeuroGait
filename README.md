@@ -14,6 +14,8 @@ Parkinson's Detection is an advanced machine learning project aimed at predictin
 Parkinson's Disease is a progressive neurological disorder that affects millions of people worldwide. Early detection can significantly improve the quality of life for patients. Motivated by the challenge and the potential impact on healthcare, I developed this project to leverage state-of-the-art machine learning techniques for early detection of Parkinson's Disease.
 
 ## 📊 Dataset
+Check about the dataset in detail here : [ Gait Analysis](https://drive.google.com/file/d/1UDixzxS4d6W5YWs54aNLrlVYNePHZ7uN/view?usp=sharing)
+
 The dataset used in this project is unique and comprehensive, consisting of 56 parameters related to various biomarkers and clinical features associated with Parkinson's Disease. The gait system includes three lightweight wireless wearable sensors with three axial accelerometers, gyroscopes, and magnetometers. These sensors measure acceleration in three orthogonal axes as a function of time and are worn on both wrists and the lower back of participants during gait measurements. The assessment includes six tests:
 
 ● Sway 30 sec eyes open: Center of mass displacement during usual condition.
