@@ -1,6 +1,4 @@
-![Parkinsons Detection Using Gait Analysis](images\parkinsons-disease-torn-paper-concept.webp?raw=true "Title")
-
-
+<img src="images\parkinsons-disease-torn-paper-concept.webp" alt="Parkinsons Detection Using Gait Analysis">
 <p align="center">
 <img src="https://img.shields.io/github/license/Ayush-Sharma410/Parkinsons_Detection" />
 <img src="https://img.shields.io/badge/Author-Ayush%20Sharma-yellow" />
