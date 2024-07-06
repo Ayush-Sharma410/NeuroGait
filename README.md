@@ -76,7 +76,7 @@ The application will be accessible at http://127.0.0.1:5000.
 
 ● User-Friendly Interface: Easy to use web application for data input and prediction results.
 
-## 📝 Note 📝
+## 📝 Note 
 The Azure instance has been temporarily deleted due to billing issues. However, the deployment process and configuration are documented below.
 
 ### Azure Deployment Screenshots
