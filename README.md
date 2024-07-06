@@ -11,7 +11,7 @@
 Parkinson's Detection is an advanced machine learning project aimed at predicting Parkinson's Disease using a unique dataset with 56 parameters. The project employs Convolutional Neural Networks (CNN) for feature extraction and leverages XGBoost, Random Forest, and CatBoost to find the best model for accurate predictions.
 
 ## 💡 Why did I build this?
-Parkinson's Disease is a progressive neurological disorder that affects millions of people worldwide. Early detection can significantly improve the quality of life for patients. Motivated by the challenge and the potential impact on healthcare, I developed this project to leverage state-of-the-art machine learning techniques for early detection of Parkinson's Disease.
+Parkinson's Disease is a progressive neurological disorder that affects millions of people worldwide. Early detection can significantly improve the quality of life for patients. Motivated by the challenge and the potential impact on healthcare, I developed this project to leverage state-of-the-art machine learning techniques for early detection of Parkinson's Disease using an unexplored dataset based on gait analysis.
 
 ## 📊 Dataset
 Check about the dataset in detail here : [ Gait Analysis](https://drive.google.com/file/d/1UDixzxS4d6W5YWs54aNLrlVYNePHZ7uN/view?usp=sharing)
