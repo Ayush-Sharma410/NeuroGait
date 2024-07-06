@@ -6,7 +6,7 @@
 </p>
 
 ## 💥 Introduction
-Parkinson's Detection is an advanced machine learning project aimed at predicting Parkinson's Disease using a unique dataset with 56 parameters. The project employs Convolutional Neural Networks (CNN) for feature extraction and leverages XGBoost, Random Forest, and CatBoost to find the best model for accurate predictions.
+Parkinson's Detection is an advanced machine learning project aimed at predicting Parkinson's Disease using a unique dataset with 56 parameters from the University of California. The project employs Convolutional Neural Networks (CNN) for feature extraction and leverages XGBoost, Random Forest, and CatBoost to find the best model for accurate predictions.
 
 ## 💡 Why did I build this?
 Parkinson's Disease is a progressive neurological disorder that affects millions of people worldwide. Early detection can significantly improve the quality of life for patients. Motivated by the challenge and the potential impact on healthcare, I developed this project to leverage state-of-the-art machine learning techniques for early detection of Parkinson's Disease using an unexplored dataset based on gait analysis.
@@ -63,7 +63,7 @@ pip install -r requirements.txt
 Run the application:
 
 ```sh
-python app.py
+python application.py
 
 ```
 
@@ -75,6 +75,27 @@ The application will be accessible at http://127.0.0.1:5000.
 ● Comprehensive Dataset: Employs a unique dataset with 56 parameters for accurate prediction.
 
 ● User-Friendly Interface: Easy to use web application for data input and prediction results.
+
+## Note 📝
+The Azure instance has been temporarily deleted due to billing issues. However, the deployment process and configuration are documented below.
+
+### Azure Deployment Screenshots
+
+Azure Dashboard showing the deployed service.
+![alt text](images/image-1.png)
+![alt text](images/image-3.png)
+
+Configuration settings of the Azure service.
+
+### How to Redeploy 🔄
+If you wish to redeploy the project, follow these steps:
+
+1. Clone the Repository: Ensure you have the project code.
+```sh
+git clone https://github.com/yourusername/parkinsons-detection.git
+```
+2. Create and Configure Azure Resources: Follow the deployment steps mentioned above to set up the Azure resources.
+3. Deploy Using GitHub Actions: Configure GitHub Actions for continuous deployment from your repository to Azure.
 
 ## 📜 LICENSE
 AGPL 3.0 License
